@@ -137,14 +137,15 @@ router.get('/:semesterId/load', async (req, res) => {
         let result = []
         const subjects = await Subject.findAll({ where: { semester_id: req.params.semesterId } });
         for (const subject of subjects) {
-            total_theory_hours = subject.batch_count * subject.theory_hours_per_week
-            total_practical_hours = subject.division_count * subject.practical_hours_per_week
+            total_theory_hours = subject.division_count * subject.theory_hours_per_week
+            total_practical_hours = subject.batch_count * subject.practical_hours_per_week
             result.push({
                 code: subject.code,
                 name: subject.name, 
                 theory_hours_per_week: subject.theory_hours_per_week,
                 total_theory_hours: total_theory_hours,
-                practical_hours_per_week: total_practical_hours,
+                practical_hours_per_week: subject.practical_hours_per_week,
+                total_practical_hours: total_practical_hours,
                 batch_count: subject.batch_count,
                 division_count: subject.division_count,
                 total_faculty_hours: total_theory_hours + total_practical_hours

@@ -22,6 +22,7 @@ const CreateSubjectModal = ({ isOpen, onClose, onCreate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onCreate(subjectData); // Call the create function with the subject data
+    onClose();
   };
 
   return (

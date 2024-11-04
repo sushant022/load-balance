@@ -52,7 +52,7 @@ const SubjectsTable = ({ semesterId }) => {
   const confirmDelete = async () => {
     if (!subjectToDelete) return;
     try {
-      const response = await fetch(`http://localhost:3000/subjects/${subjectToDelete.id}`, {
+      const response = await fetch(`http://localhost:3000/semesters/${semesterId}/subjects/${subjectToDelete.id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {

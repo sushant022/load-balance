@@ -1,4 +1,5 @@
 import React from 'react';
+import './LoadModal.css'; // Import the CSS file
 
 const LoadModal = ({ isOpen, onClose, loadData }) => {
   if (!isOpen) return null; // Don't render the modal if it's not open
@@ -15,6 +16,7 @@ const LoadModal = ({ isOpen, onClose, loadData }) => {
               <th>Theory Hours/Week</th>
               <th>Total Theory Hours</th>
               <th>Practical Hours/Week</th>
+              <th>Total Practical Hours</th>
               <th>Batch Count</th>
               <th>Division Count</th>
               <th>Total Faculty Hours</th>
@@ -28,6 +30,7 @@ const LoadModal = ({ isOpen, onClose, loadData }) => {
                 <td>{item.theory_hours_per_week}</td>
                 <td>{item.total_theory_hours}</td>
                 <td>{item.practical_hours_per_week}</td>
+                <td>{item.total_practical_hours}</td>
                 <td>{item.batch_count}</td>
                 <td>{item.division_count}</td>
                 <td>{item.total_faculty_hours}</td>
